@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVault | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-lock"></i>
+                <h2>SecureVault</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="home.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-key"></i>
+                            <span>Passwords</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="addPasswordBtn">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add New</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search passwords...">
+                </div>
+                
+                <div class="user-profile">
+                    <img src="assets/user-avatar.jpg" alt="User Avatar">
+                    <span>Guest</span>
+                </div>
+            </header>
+            
+            <div class="content-area">
+                <div class="welcome-banner">
+                    <h1>Welcome back</h1>
+                    <p>You have <span id="passwordCount">0</span> saved passwords</p>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon weak">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Weak passwords</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon reused">
+                            <i class="fas fa-redo"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Reused passwords</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon old">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Old passwords</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-passwords">
+                    <div class="section-header">
+                        <h2>Recently Used</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    
+                    <div class="password-list">
+                        <div class="empty-state">
+                            <i class="fas fa-key"></i>
+                            <p>No passwords saved yet</p>
+                            <button id="addFirstPassword" class="btn btn-primary">Add your first password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Password</h2>
+            <form id="addPasswordForm">
+                <div class="form-group">
+                    <label for="service">Service/Website</label>
+                    <input type="text" id="service" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username/Email</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="new-password" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <button type="button" id="generatePassword" class="btn btn-secondary">Generate Strong Password</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
